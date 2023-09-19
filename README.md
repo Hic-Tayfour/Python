@@ -1,7 +1,7 @@
 # Python
 Repository for Python projects in Spyder: Academic work and exploring Python functions for data analysis.
 
-Welcome to our repository dedicated to academic projects and Python exploration using Spyder in Anaconda!
+Welcome to my repository dedicated to academic projects and Python exploration using Spyder in Anaconda!
 
 What You'll Find Here:
 
