@@ -100,4 +100,81 @@ print(vPerdas)
 
 plt.plot(vQuant,vPerdas)
 print(np.min(vPerdas))
-print(vQuant[np.argmin(vPerdas)])    
+print(vQuant[np.argmin(vPerdas)]) 
+
+#%%Problema da Padaria do Beijamin Salamão ; Mas usando a Simulação de Monte Carlo
+# Importação das bibliotecas numpy e matplotlib.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Vetor de frequências.
+
+vFreq = [10,13,7]
+
+# Vetor de frequências acumuladas.
+
+vFreqAcum = np.cumsum(vFreq)
+
+# Número de simulações
+
+N=1000
+
+# Função demandas simuladas.
+
+vDemanda = np.zeros(30)
+
+def fDemandaSim(q):
+    for t in range(30):
+        x = np.random.randint(1,31)    
+        if x <= vFreqAcum[0]:
+            vDemanda[t] = 400
+        elif x <= vFreqAcum[1]:
+            vDemanda[t] = 600
+        else:
+            vDemanda[t] = 750
+    return vDemanda
+
+# Função perdas.
+
+vPerdas = np.zeros(30)
+
+def fPerdas(q):
+    for t in range(0,len(vDemanda)):
+        if q <= vDemanda[t]:
+            vPerdas[t] = 0.50*(vDemanda[t] - q)
+        else:
+            vPerdas[t] = 0.10*(q- vDemanda[t])
+    PerdasTotais=np.sum(vPerdas)
+    return PerdasTotais
+
+# Simulações.
+
+vPerdaMin=np.zeros(N)
+vQMin=np.zeros(N)
+
+vQuant=np.arange(500,801)
+vPerda=np.zeros(801-500)
+
+for n in range(0,N):
+    vDemanda = fDemandaSim(n)
+    for q in range(0,len(vQuant)):
+        vPerda[q] = fPerdas(vQuant[q])
+    vPerdaMin[n]=np.min(vPerda)
+    vQMin[n] = vQuant[np.argmin(vPerda)]
+    
+# Histograma da quantidade ótima de pãzeinhos produzidos.
+plt.figure()
+plt.hist(vQMin)
+
+# Histograma das perdas mínimas.
+plt.figure()
+plt.hist(vPerdaMin)
+
+# Quantidade ótima (média +/- desvio padrão).
+
+print('Quantidade ótima a ser produzida: q =',np.mean(vQMin),'+/-',np.std(vQMin))
+
+# Custo mínimo (média +/- desvio padrão).
+
+print('Custo mínimo: C =',np.mean(vPerdaMin),'+/-',np.std(vPerdaMin))
