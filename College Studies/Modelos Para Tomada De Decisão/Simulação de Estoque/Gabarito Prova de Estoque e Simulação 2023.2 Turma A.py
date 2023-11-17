@@ -40,16 +40,19 @@ print('Custo Total = ',CustoDeFrete + CustoDeEstocagem)
 
 # Cálculo dos custos.
 
-for t in range(1,365):
-    Estoque[t] = Estoque[t-1] - Demanda
-    if Estoque[t] < 0:
-        Estoque[t] = Estoque[t] + Lote
-        CustoDeFrete = CustoDeFrete + Frete
-CustoDeEstocagem = np.sum(Estocagem * Estoque)
+def fCustoTotal(q):
+    Estoque = np.zeros(365)
+    Estoque[0] = q
+    CustoDeFrete = Frete
+    for t in range(1,365):
+        Estoque[t] = Estoque[t-1] - Demanda
+        if Estoque[t] < 0:
+            Estoque[t] = Estoque[t] + q
+            CustoDeFrete = CustoDeFrete + Frete
+    CustoDeEstocagem = np.sum(Estocagem * Estoque)
+    CustoTotal = CustoDeEstocagem + CustoDeFrete
+    return CustoTotal
 
-print('Custo de Frete = ',CustoDeFrete)
-print('Custo de Estocagem = ',CustoDeEstocagem)
-print('Custo Total = ',CustoDeFrete + CustoDeEstocagem)
 
 # Cálculo do lote econômico.
 
