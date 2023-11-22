@@ -92,7 +92,7 @@ Y05=odeint(EqDif,Y0,t)
 
 # Gráfico.
 
-plt.plot(t,Y,'r')
+plt.plot(t,Y05,'r')
 plt.ylabel('Preço (R$)')
 plt.xlabel('Tempo (dias)')
 plt.title('Dinâmica de preços')
@@ -106,7 +106,7 @@ Y08=odeint(EqDif,Y0,t)
 
 # Gráfico.
 
-plt.plot(t,Y,'r')
+plt.plot(t,Y08,'r')
 plt.ylabel('Preço (R$)')
 plt.xlabel('Tempo (dias)')
 plt.title('Dinâmica de preços')
