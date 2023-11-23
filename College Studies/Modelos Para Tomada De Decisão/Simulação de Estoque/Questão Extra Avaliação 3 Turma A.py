@@ -37,7 +37,7 @@ def fCustoTotalSim(q):
             CustoDeFrete=CustoDeFrete+Frete
             Contador=1
         if Contador==1:
-            vEsocagem[t]=18
+            vEstocagem[t]=18
         else:
             vEstocagem[t]=36
         CustoDeEstoque[t]=vEstocagem[t]*Estoque[t]
