@@ -67,7 +67,7 @@ um loop de reforço (R) ou de balanceamento (B).
 F: [F] -> R
 """
 "Questão 2"
-#A questão foi uma questão toda teórica e com imagens , não vale a pena a tentativa de inserir o resltados aqui
+#A questão foi uma questão toda teórica e com imagens , não vale a pena a tentativa de inserir o resultados aqui
 #Em suma, tinha que se ter o conhecimnento dos conceitos de loops de reforço e balanceamento para responder a questão
 
 "Questão 3"
