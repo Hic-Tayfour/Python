@@ -63,7 +63,7 @@ vida; o Aumento da taxa de morte junto da baixa expectativa de vida leva a uma r
             -Polaridade positiva(+)
                 -Significa que se a motivação aumenta, a produtividade tabém aumenta(ceteris paribus)
                     - ∂y/∂x>0
-            -Polaridade negativa(+)
+            -Polaridade negativa(-)
                 -significa que se a experiência do empregado aumenta, então a taxa de erros do empregado diminui (e vice e versa)
                     - ∂y/∂x<0
 
