@@ -1,0 +1,94 @@
+Aula 01 
+O que é sistema ?
+    -"Um conjunto interconectado de elementos que se organizam coerentemente para alcançar algo"
+    - Nele há :
+        -Elementos
+        -Interconexões
+        -Função/Propósito
+
+Como saber se estamos diante de um sistema ou só um bando de coisas ?
+    -Podemos identificar as partes ?
+    -As partes afetam umas as outras ?
+    -As partes quando, juntas, produzem efeitos diferentes daqueles que produzem sozinhas ?
+    -Este efeito (comportamento ao longo do tempo) persiste em uma série de diferentes circiunstâncias ?
+
+Causas e efeitos   
+    -Por que Dinâmica de Sistemas é importante ?
+    -O mundo que nos rodeia é (quase sempre)contra intuitivo.
+    -E no nosso dia a dia ?
+        -Estudar até tarde -->Muito cansado para pensar claramente 
+        -Pular alguma refeição --> Baixa produtividade
+        -Acelerar um projeto --> Erros e retrabalho
+        -Trabalhar muito intensamente --> Estresse burn out, baixa produtividade
+        -Evitar conversas difícies --> Desintendimentos, desalinhamentos, problemas 
+
+O que está acontecendo ?
+    -Resistência a mudança ("policy resistence")
+        -Ações focadas em resolver problemas acabam causando "efeito colateral" não antecipado
+        -O sistema responde às nossas ações de forma a atrasá-las, dilui-las ou derrotá-las
+        -Ações tornam o problema pior ou mais complexo do que ele era antes
+    - (Obejtivo + Situação)-->Problema-->Decisão-->Resultados <><><> Essse é o processo chamado de "Pensamento Linear"
+    - Na verdade as coisas não funcionam bem assim :
+        -(Objetivos+Estado do Sistema)-->Decisão-->(Estado do sistema Efeitos Colaterias)
+        -Efeitos Colaterais --> (Estado do sistema + Objetivos de outros Agentes)-->Ações dos Outros-->Estado do Sistema
+        -Resumindo; tudo é causa e efeito de si mesmo e está tudo interligado; Esse sistema têm o nome de Pensamento em FeedBack
+
+Estrutura determina comportamento
+    -Eventos(O que está acontecendo?)<--Padrões de Comportamento(Quais são as tendências?)<--Estrutura do Sistema(Como as partes estão relacionadas; O que influência os Padrõe)<--
+--Modelos Mentais(Quais são os valores, premissas e crenças que moldam o sistema ?)
+    -Linha de Visibilidade se dá apenas aos Eventos, mas para cada vez mais baixo, aumentasse o Poder da Influência 
+    -Faça um paralelo com a lógica do Iceberg; a ponta, a parte mais visível são os Eventos; a fundo do Iceberg , a parte que ninguém vê são os Modelos Mentais
+
+Dinâmica de Sistemas (DS) é uma abordagem para tratar problemas com complexidades dinâmicas
+    -Criada por Jay Forrester no MIT em 1957-->Aplicação de teoria de controle em sistemas sócio-técnicos 
+    -É uma abordagem de modelagem e simulação computacional para entender o comportamento não linear de sietmas complexos
+    -Pode ser genericamente em duas fases:
+        -Diagramas Causas 
+            -Qualitativo(Conceituação e Formulação)
+        -Diagramas de estqoue-fluxo
+            -Quantivo(Simulação, teste e análise)
+
+Os Diagramas Causais são utilizados para capturar a estrutura do sistema e seus FeedBack
+    -Tomando como exemplo um sistema populacional
+        -Se um pais tem uma populacão grande, a taxa de nascimento grande; e temos a taxa de fecundidade que influencia na taxa de nascimento; As relações 
+dessas ocorrências são positivas(Polaridade positiva) entre si ---> Loop de Reforço
+        -Do outro lado temos a parte de mortes da população, se a população é alta, a taxa de mortalidade é alta també,; e temos também a expectativa de 
+vida; o Aumento da taxa de morte junto da baixa expectativa de vida leva a uma redução da população; As relações dessas ocorrências são negativas 
+(Polaridade Negativa)entre si ---> Loop de Balanciamento
+    -Olhando para uma ótica anatomia de link
+        -Motivação-->(+)Produtividade
+        -Experiência do Empregado --> (-) Taxa de erros do empregado 
+        - x-> y : significa que y é uma função de x (e outras variáveis)
+            -y=f(x,..,xn)
+            -Polaridade positiva(+)
+                -Significa que se a motivação aumenta, a produtividade tabém aumenta(ceteris paribus)
+                    - ∂y/∂x>0
+            -Polaridade negativa(+)
+                -significa que se a experiência do empregado aumenta, então a taxa de erros do empregado diminui (e vice e versa)
+                    - ∂y/∂x<0
+
+Determinando a polaridade de um Loop
+    -Tomando o exemplo das populações 
+        -Maneira rápida
+            -Contar o número de links negativos
+                -Se for par, o loop é positivo --> Reforço
+                -Se for impar, o loop é negativo --> Balanceamento
+        -Maneira Correta
+            -Traçar o efeito de uma pertubação(mudança pequena) em uma das varáveis e sua propagação ao longo de todo o Loop
+
+Aula 02
+Características da complexidade dinâmica
+    -Características
+        -Mudança contstante e dependência de eventos passados
+            -Mudanças nas variáveis ao longo do tempo caracterizam o estado atual do sistema
+            -O histórico influência os estados futuros
+        -Fortemente interrelacionado e governado por FeedBacks
+            -As variáveis no sistema interagem fortemente uma com as outras e se retroalimentam 
+        -Auto-organizável
+            -O comportamento dinâmico do sistema é resultado das insterações estruturais desses sistema
+        -Adaptativo
+            -Sistemas são geralmente rsistentes a mudanças e adaptáveis a novas políticas 
+        -Não linear
+            -Efeito não é proporcional à causa
+            -Efeitos locais não podem se aplicar globalmente
+            
