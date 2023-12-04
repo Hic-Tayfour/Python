@@ -91,4 +91,37 @@ Características da complexidade dinâmica
         -Não linear
             -Efeito não é proporcional à causa
             -Efeitos locais não podem se aplicar globalmente
-            
+
+Aula 03
+Diagrama de Estoque-fluxo
+    -As representações em estoque e fluxo, nos ajudam a entender o comportamento de sistemas ao longo do tempo
+        -Metáfora da banheira
+            -Fluxo de entrada(FxEnt) de água e Fluxo de saída(FxSai) de água
+                -FxEnt > FxSai --> A banheira transborda
+                -FxEnt < FxSai --> A banheira esvazia
+                -FxEnt = FxSai --> A banheira se mantém em equilíbrio 
+        -Faça um paralelo para a ideia das  populações
+            -Se nasce mais do que morre, a população cresce
+            -Se nasce menos do que morre, a população diminui
+            -Se nasce o mesmo tanto que morre, a população se mantém em equilíbrio
+            -Temos duas coisas nesse problema:
+                -O estoque : Rperesentado pela população
+                -Os fluxos : Os nascimentos e as mortes 
+    -O diagrama de Estoque-Fluxo possui um esquema padrão de representação
+        -Os fluxos são representados por uma seta com uma "torneirinha"
+        -As "nuvemzinhas" são coisas externas
+        -O estqoue é representado por um quadrado que recebe os fluxos
+    -O problema da população pode ser escrito matematicamente da seguinte forma 
+        - P[t+1]=P[t]+A[n]*P[t]-A[m]*P[t] ---> P[t+1]=P[t]+(A[n]-A[m])*P[t]
+            - A[n]*P[t] --> esse represnta o Fluxo de Entrada (nascimentos)
+            - A[m]*P[t] --> esse representa o Fluxo de Saída (mortes)
+
+Do Discreto ao Contínuo
+    -O modelo Discreto se trata do uso de valores intervalados, quanto maior o espaçamento, pior sua precisão. Quando usamos intervalos cada menores,
+cada vez mais perto do valor real. Mas sempre terá espaçamentos entre os intervalos, para eliminar esse problema, pecisaremos de um intervalo 
+infenitesimal, nos levando ao modelo Contínuo
+    -O modelo Contínuo se trata do uso de intervalos infenitesimais para o calculo das pevisões. Isso com o intuito de uma maior acertividade
+        -Para isso adaptaremos os a equação vista, para uma que possui um delta, que será responsável por representar esse intervalo infenitesimal
+            - P[t+Δt]=P[t]+k*P[t]*Δt ---> P[t+Δt]-P[t]=k*P[t]*Δt ---> (P[t+Δt]-P[t])/Δt=k*P[t]
+            -Lim(Δt-->0){(P[t+Δt]-P[t])/Δt} ---> dP/Dt=k*P ; com isso chegamos a ideia das equações difrencias ordinárias(E.D.O)
+
