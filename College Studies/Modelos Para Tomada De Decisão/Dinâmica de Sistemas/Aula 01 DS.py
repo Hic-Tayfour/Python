@@ -8,10 +8,6 @@ Qd = Quantidade demandada
 Qs = Quantidade ofertada(supply)
 P = Preço
 """
-import polars as pl 
-data = {'P': [0.5, 0.7], 'Qd': [10, 8], 'Qs': [8, 11]}
-df = pl.DataFrame(data)
-
 #a) 
 """
 Escreva as equações da quantidade demandada(Qd) e da quantidade ofertada(Qs) em função do preço(P) do produto.  
