@@ -99,10 +99,24 @@ idx = np.abs(t - 2100).argmin()
 pop = np.round(Y[idx]) 
 print(f'População em {2100}: {pop}')
 
-# Capital per capita.
+print(f'Trabalho (L) previsto para 2100 (milhões): {int(round(pop[0]))}')
+print(f'Capital (K) previsto para 2100 (trilhões): {int(round(pop[1]))}')
 
-Prop=Y[:,1]/Y[:,0]
+capital_per_capita = pop[1] / pop[0]
+print(f'Capital per capita previsto para 2100: {capital_per_capita:.3f}'.replace('.', ','))
+
+# Para s = 0.1
+s = 0.1
+Y = odeint(SisEqDif, Y0, t)
 idx = np.abs(t - 2100).argmin()
-prop = round(Y[idx, 1] / Y[idx, 0], 3)
-print(f'Prop em {2100}: {prop}')
+pop = Y[idx]
+capital_per_capita = pop[1] / pop[0]
+print(f'Capital per capita previsto para 2100 (para s=0,1): {capital_per_capita:.3f}'.replace('.', ','))
 
+# Para s = 0.2
+s = 0.2
+Y = odeint(SisEqDif, Y0, t)
+idx = np.abs(t - 2100).argmin()
+pop = Y[idx]
+capital_per_capita = pop[1] / pop[0]
+print(f'Capital per capita previsto para 2100 (para s=0,2): {capital_per_capita:.3f}'.replace('.', ','))
