@@ -1,4 +1,4 @@
-#%%Bibliotecas
+#Bibliotecas
 import pandas as pd
 import yfinance as web
 import datetime as dt
@@ -8,7 +8,8 @@ from math import log10
 import scipy.stats as scy
 import numpy as np
 
-#%%Paramerização das Variáveis 
+
+#Paramerização das Variáveis 
 i=0
 ações=[]
 começo=input("inicio dos dados(yyyy-mm-dd) : ")
@@ -19,7 +20,7 @@ else:
 	fim=dt.datetime.now()
 n=int(input("você deseja entrar com quantas ações ? : "))
 
-#%%Uma Ação
+#Uma Ação
 if n==1:
     ações=input("entre com sua ação formato abcd1.sa : ")
     dados=web.download(ações,começo,fim)
@@ -28,7 +29,9 @@ if n==1:
     dados['OBV'] = (dados['Close'] - dados['Close'].shift(1)) * dados['Volume']
     dados['OBV'] = dados['OBV'].cumsum()
     dados['MedMovS']=dados['Close'].rolling(window=7).mean()
-    #%%Gráficos 
+
+    
+    #Gráficos 
     c=np.array(round(1+3.3*log10(len(dados)),0))
     fig.subplot(1,2,1)
     fig.hist(dados['Retorno'],bins=int(c),color='green',density=True)
@@ -43,10 +46,9 @@ if n==1:
     fig.figure()
     scy.probplot(dados['Retorno'][1:],dist='norm',plot=fig)
 else:
-#%%Duas ações
     dados = pd.DataFrame() 
     for i in range(n):
-        ação = input("entre com suas ações no padrão abcd1.sa : ")
+        ação = input("Entre com suas ações no padrão abcd1.sa : ")
         ações.append(ação.upper())
         dados_ação = web.download(ação, começo, fim)
         dados_ação = dados_ação.drop(['Adj Close', 'High', 'Low', 'Open'], axis=1)
@@ -56,10 +58,44 @@ else:
         dados_ação['OBV'] = dados_ação['OBV'].cumsum()
         dados_ação.columns = pd.MultiIndex.from_tuples([(ação, 'Close'), (ação, 'Volume'), (ação, 'Retorno'), (ação, 'MedMovS'), (ação, 'OBV')])
         dados = pd.concat([dados, dados_ação], axis=1)
-dados_ação=None
-#%%Salvar em Excel
+
+        # Gerar gráficos para cada ação após processá-los
+        fig.figure(figsize=(14, 7))
+
+        # Gráfico de linha para preços de fechamento
+        fig.subplot(2, 2, 1)
+        fig.plot(dados_ação[(ação, 'Close')], label='Preço de Fechamento')
+        fig.title(f'Preço de Fechamento - {ação}')
+        fig.xlabel('Data')
+        fig.ylabel('Preço')
+        fig.legend()
+
+        # Gráfico de barras para volume
+        fig.subplot(2, 2, 2)
+        fig.bar(dados_ação.index, dados_ação[(ação, 'Volume')], color='orange')
+        fig.title(f'Volume - {ação}')
+        fig.xlabel('Data')
+        fig.ylabel('Volume')
+
+        # Histograma dos retornos
+        fig.subplot(2, 2, 3)
+        fig.hist(dados_ação[(ação, 'Retorno')].dropna(), bins=50, color='green', alpha=0.7)
+        fig.title(f'Histograma de Retornos - {ação}')
+        fig.xlabel('Retorno')
+        fig.ylabel('Frequência')
+
+        # Gráfico de probabilidade (QQ plot) para os retornos
+        fig.subplot(2, 2, 4)
+        scy.probplot(dados_ação[(ação, 'Retorno')].dropna(), dist="norm", plot=fig)
+        fig.title(f'QQ Plot - {ação}')
+
+        fig.tight_layout()
+        fig.show()
+
+    
+#Salvar em Excel
 p=input("você quer salvar essa esses dados em uma planilha de excel(responda sim ou não) ?")
 if p=="sim":
     nome=input("Qual o nome da Planilha ?")
     dados.to_excel(nome+'.xlsx')
-        
+
