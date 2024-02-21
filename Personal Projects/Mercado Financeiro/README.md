@@ -6,6 +6,7 @@ Requisitos Para executar os scripts, é necessário ter o Python instalado em su
 
 pandas numpy matplotlib scipy yfinance
 
-Estrutura dos Scripts Avaliação de Ações.py: Script principal que executa a análise de ações. Ele define o fluxo de trabalho, desde a coleta de dados até a geração de gráficos e estatísticas. core.py: Contém as funções utilizadas pelo script principal, incluindo funcionalidades para baixar dados, calcular indicadores, gerar gráficos, entre outros.
+Estrutura dos Scripts Avaliação de Ações.py: Script principal que executa a análise de ações. Ele define o fluxo de trabalho, desde a coleta de dados até a geração de gráficos e estatísticas. 
+core.py: Contém as funções utilizadas pelo script principal, incluindo funcionalidades para baixar dados, calcular indicadores, gerar gráficos, entre outros.
 
 Atenciosamente, Hicham Tayfour
