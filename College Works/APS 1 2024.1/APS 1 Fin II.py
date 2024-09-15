@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy_financial as fin
+from scipy.optimize import minimize
 
 # Importando Dados 
 dados = pd.read_excel("carteira.xlsx", sheet_name = "Aba 2 - Tabela de Retorno")
@@ -80,7 +81,8 @@ for i in range(num_portfolios):
 resultados_frame = pd.DataFrame(resultados.T, columns=['retorno', 'volatilidade'])
 
 # Plotar os dados em um gráfico de dispersão
-plt.scatter(resultados_frame.volatilidade, resultados_frame.retorno, c=resultados_frame.volatilidade, cmap='RdYlGn')
+
+plt.scatter(resultados_frame.volatilidade, resultados_frame.retorno, c=resultados_frame.volatilidade, cmap='RdYlGn', s=5)
 plt.xlabel('Volatilidade (Desvio Padrão)')
 plt.ylabel('Retorno Esperado (%)')
 plt.title('Carteiras de Markowitz')
@@ -98,11 +100,9 @@ plt.plot(x, y, color='black', linestyle='-', label = 'LAC')
 
 plt.xlim([0, max(resultados_frame.volatilidade)])
 plt.ylim([0, max(resultados_frame.retorno)])
-
 plt.legend(labelspacing=0.8)
 plt.colorbar(label='Volatilidade')
 plt.show()
-
 # Composição da Carteira Ótima
 composicao_otima = pd.DataFrame({'Ativo': Retornos.columns, 'Peso': pesos_otimos})
 print(composicao_otima)
@@ -111,3 +111,7 @@ print(composicao_otima)
 sharpe_otimo = (retorno_otimo - rf) / volatilidade_otima
 
 print("Índice de Sharpe na carteira ótima:", sharpe_otimo)
+
+print("Retorno da carteira ótima:", retorno_otimo)
+
+print("Volatilidade da carteira ótima:", volatilidade_otima)
