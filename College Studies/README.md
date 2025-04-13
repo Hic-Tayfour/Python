@@ -1,5 +1,18 @@
-Olá, tudo bem? Espero que sim.
+# 🐍 Repositório de Estudos em Python
 
-Neste repositório, você encontrará arquivos de Python feitos no Spyder (Anaconda), com o objetivo de estudar as funções presentes em Python. Você pode encontrar certos resumos de funções de Python, aplicações em certas matérias como em Modelos para Tomada de Decisão. Faça bom uso desse material para estudos e consultas.
+Olá! Espero que esteja tudo bem por aí.  
+Este repositório reúne meus estudos e aplicações em **Python**, desenvolvidos inicialmente no **Spyder (via Anaconda)** e, posteriormente, no **VS Code**.
 
-Atenciosamente, Hicham Tayfour
+Aqui você encontrará:
+- 🧠 **Resumos e testes de funções nativas do Python**
+- 📚 **Scripts aplicados a disciplinas acadêmicas**, como *Modelos para Tomada de Decisão*
+- 📁 Arquivos organizados por tópicos, com foco em aprendizado e reuso de código
+
+O objetivo é manter um acervo de anotações úteis para estudo, revisão e aplicação prática.
+
+---
+
+Sinta-se à vontade para explorar e utilizar o material como apoio nos seus próprios estudos!
+
+Atenciosamente,  
+**Hicham Munir Tayfour**
